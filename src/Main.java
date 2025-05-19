@@ -1,6 +1,5 @@
 enum Size {
     XXS(32) {
-        @Override
         public String getDescription() {
             return "Детский размер";
         }
@@ -113,7 +112,7 @@ class Tie extends Clothes implements MenClothing {
 
 class Atelier {
     public void dressWoman(Clothes[] clothes) {
-        System.out.println("Женская одежда в ателье:");
+        System.out.println("Одеть женщину в ателье:");
         for (Clothes item : clothes) {
             if (item instanceof WomenClothing) {
                 ((WomenClothing) item).dressWoman();
@@ -122,7 +121,7 @@ class Atelier {
     }
 
     public void dressMan(Clothes[] clothes) {
-        System.out.println("Мужская одежда в ателье:");
+        System.out.println("Одеть мужчину в ателье:");
         for (Clothes item : clothes) {
             if (item instanceof MenClothing) {
                 ((MenClothing) item).dressMan();
@@ -142,9 +141,5 @@ public class Main {
         Atelier atelier = new Atelier();
         atelier.dressWoman(clothes);
         atelier.dressMan(clothes);
-        System.out.println("Описание размеров:");
-        for (Size size : Size.values()) {
-            System.out.println(size + " (" + size.getEuroSize() + "): " + size.getDescription());
-        }
     }
 }
